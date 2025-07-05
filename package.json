@@ -1,11 +1,12 @@
 {
 	"name": "my-site",
 	"version": "1.0.0",
+	"type": "module",
 	"scripts": {
-		"build:scss": "sass assets/styles/main.scss _site/assets/styles/compiled/main.css",
+		"build:scss": "sass styles/main.scss _site/assets/styles/main.css",
 		"build:11ty": "eleventy",
 		"build": "yarn build:scss && yarn build:11ty",
-		"watch:scss": "sass --watch assets/styles/main.scss:_site/assets/styles/compiled/main.css",
+		"watch:scss": "sass --watch styles/main.scss:_site/assets/styles/main.css",
   		"start": "concurrently \"yarn watch:scss\" \"eleventy --serve\""
 	},
 	"devDependencies": {
