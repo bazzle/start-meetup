@@ -1,10 +1,18 @@
 /* Project specific ------------------------------------ */
 
 $site-width: 1100px;
-$content-width: 800px;
+$content-width: 900px;
 $extended-width: 1600px;
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+$color-bitcoin: #f7931a;
+$color-bitcoin-a11y: #D67600;
+$color-white-solid: #ffffff;
+$color-black-solid: #000000;
+$color-black-off-solid: #151515;
+$color-white-off-solid: #fafafa;
+
 
 /* Useful helpers -------------------------------------- */
 
@@ -41,32 +49,7 @@ $block-spacing: clamp(3.5rem, 6vw, 6.5rem);
 $block-spacing--deep: clamp(8rem, 12vw, 14rem);
 $block-spacing--text: clamp(1rem, 3vw, 3rem);
 $column-gap: clamp(2rem, 5vw, 5rem);
-$site-width: $site-width;
 $site-width-margins: calc(($site-width + $gutter-padding) + $gutter-padding);
-$content-width: $content-width;
-$extended-width: $extended-width;
-
-
-/* Breakpoints ------------------------------------------------- */
-
-$breakpoints: (
-    mobile: 359px,
-    mobile-land: 512px,
-    tablet: 641px,
-    desktop: 800px,
-    desktop-mini: 880px,
-    desktop-med: 1025px,
-    mobile-nav: 1090px,
-    desktop-wide: 1200px,
-    desktop-wider: 1340px,
-    desktop-xl: 1408px,
-	site-width-margins: $site-width-margins,
-	site-width: $site-width
-);
-$breakpoints--h: (
-    letterbox: 900px
-);
-
 
 
 /* Typography ------------------------------------------------- */
@@ -188,7 +171,7 @@ $font-blocky: "Inter", sans-serif;
 }
 
 %text-link-defaults{
-	color: var(--color-accent);
+	color: var(--color-bitcoin-a11y-text);
 	text-decoration: underline;
 	text-underline-offset: 0.1em;
 	text-decoration-thickness: .05em;
@@ -240,7 +223,7 @@ $font-blocky: "Inter", sans-serif;
 }
 
 %text-heading-defaults{
-	color: var(--color-accent);
+	color: var(--color-accent-a11y);
 	font-family: $font-std;
 	line-height:1.2;
 }

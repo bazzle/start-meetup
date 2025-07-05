@@ -1,3 +1,11 @@
-header{
-	background-color: var(--color-bg-solid);
+@use "all-vars" as vars;
+
+.header{
+	color: var(--color-foreground-inv);
+	background-color: var(--color-bg-inv);
+	padding-top: vars.$block-spacing;
+	padding-bottom: vars.$block-spacing;
+	&__logo-wrapper{
+		display: inline-block;
+	}
 }

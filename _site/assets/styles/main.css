@@ -46,12 +46,6 @@ button, input, label {
   line-height: 1.1;
 }
 
-/* Balance text wrapping on headings */
-h1, h2,
-h3, h4 {
-  text-wrap: balance;
-}
-
 /* Make images easier to work with */
 img,
 picture {
@@ -77,62 +71,75 @@ textarea:not([rows]) {
 }
 
 :root {
-  --color-foreground: #ffffff;
-  --color-accent: #9AF3FF;
-  --color--accent-50: rgb(154, 243, 255, .5);
-  --color-accent-alt: #FFAAAA;
-  --color-accent-alt-50: rgb(255, 170, 170, .5);
-  --color-bg: #202020;
-  --color-bg-alt: #161616;
-  --color-bg-off-solid: #151515;
-  --color-bg-solid: #000000;
+  --color-bitcoin: #f7931a;
+  --color-bitcoin-a11y-text: #AF6408;
+  --color-bitcoin-a11y: #DB7900;
+  --color-white-solid: #ffffff;
+  --color-black-solid: #000000;
+  --color-black-off-solid: #151515;
+  --color-white-off-solid: #fafafa;
+  --color-foreground: var(--color-black-off-solid);
+  --color-foreground-inv: var(--color-white-solid);
+  --color-bg: var(--color-white-solid);
+  --color-bg-inv: var(--color-black-solid);
+  --color-bg-off-solid: var(--color-white-off-solid);
+  --color-accent: var(--color-bitcoin);
+  --color-accent-a11y: var(--color-bitcoin-a11y);
   --color-feint-line: rgb(255, 255, 255, .1);
-  --color-focus: #9AF3FF;
-  --color-accent-alt-immutable: #FFAAAA;
-  --color-accent-immutable: #9AF3FF;
-  --color-accent-faded: #9af3ff76;
-  --color-accent-alt-faded: #ffaaaa63;
-  --color-ridged-line-shadow: rgba(0, 0, 0, 0.7);
-  --color-ridged-line-light: rgba(255, 255, 255, 0.16);
-  --color-ridged-line-light-accent: rgba(154, 243, 255, 0.16);
-  --color-ridged-line-light-accent-alt: rgba(255, 170, 170, 0.16);
+  --color-focus: var(--color-bitcoin-a11y);
 }
 
-body.light-mode {
-  --color-foreground: #2c2c2c;
-  --color-foreground-alt: #4b4b4b;
-  --color-accent: #386a71;
-  --color-accent-alt: #af4a4a;
-  --color-bg: #e3e3e3;
-  --color-bg-alt: #d1d1d1;
-  --color-bg-off-solid: #fafafa;
-  --color-bg-solid: #ffffff;
-  --color-feint-line: rgb(255, 255, 255, 1);
-  --color-focus: #386a71;
-  --color-ridged-line-shadow: rgba(0, 0, 0, 0.05);
-  --color-ridged-line-light: rgb(255, 255, 255);
+body.dark-mode {
+  --color-foreground: var(--color-white-solid);
+  --color-foreground-inv: var(--color-black-solid);
+  --color-bg: var(--color-black-solid);
+  --color-bg-inv: var(--color-white-off-solid);
+  --color-bg-off-solid: var(--color-black-off-solid);
 }
 @media print {
   body {
-    --color-foreground: #2c2c2c;
-    --color-foreground-alt: #4b4b4b;
-    --color-accent: #386a71;
-    --color-accent-alt: #af4a4a;
-    --color-bg: #e3e3e3;
-    --color-bg-alt: #d1d1d1;
-    --color-bg-off-solid: #fafafa;
-    --color-bg-solid: #ffffff;
-    --color-feint-line: rgb(255, 255, 255, 1);
-    --color-focus: #386a71;
+    --color-foreground: var(--color-black-off-solid);
+    --color-foreground-inv: var(--color-white-solid);
+    --color-bg: var(--color-white-solid);
+    --color-bg-inv: var(--color-black-solid);
+    --color-bg-off-solid: var(--color-white-off-solid);
   }
 }
 
 /* Useful helpers -------------------------------------- */
 /* Colours ------------------------------------------------- */
 /* Variables ------------------------------------------------- */
-/* Breakpoints ------------------------------------------------- */
 /* Typography ------------------------------------------------- */
-body {
+.text-link {
+  font-weight: 600;
+}
+body.light-mode .text-link {
+  font-weight: 700;
+}
+@media print {
+  .text-link {
+    font-weight: 700;
+  }
+}
+
+.text-display {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(calc(11rem * 60 / 100), 11vw, 11rem);
+  font-style: normal;
+  line-height: 1;
+  font-weight: 760;
+  font-variation-settings: "opsz" 72;
+}
+body.light-mode .text-display {
+  font-weight: 780;
+}
+@media print {
+  .text-display {
+    font-weight: 780;
+  }
+}
+
+.text-std, .text-body, p:not([class]), li:not([class]), body {
   font-family: "Inter", sans-serif;
   font-size: clamp(calc(1.8rem * 80 / 100), 1.8vw, 1.8rem);
   font-style: normal;
@@ -140,45 +147,153 @@ body {
   font-variation-settings: "opsz" 10;
   font-weight: 380;
 }
-body.light-mode body {
+body.light-mode .text-std, body.light-mode .text-body, body.light-mode p:not([class]), body.light-mode li:not([class]), body.light-mode body {
   font-weight: 460;
 }
 @media print {
-  body {
+  .text-std, .text-body, p:not([class]), li:not([class]), body {
     font-weight: 460;
   }
 }
-body strong, body b {
+.text-std strong, .text-body strong, p:not([class]) strong, li:not([class]) strong, body strong, .text-std b, .text-body b, p:not([class]) b, li:not([class]) b, body b {
   font-weight: 650;
 }
-body.light-mode body strong, body.light-mode body b {
+body.light-mode .text-std strong, body.light-mode .text-body strong, body.light-mode p:not([class]) strong, body.light-mode li:not([class]) strong, body.light-mode body strong, body.light-mode .text-std b, body.light-mode .text-body b, body.light-mode p:not([class]) b, body.light-mode li:not([class]) b, body.light-mode body b {
   font-weight: 660;
 }
 @media print {
-  body strong, body b {
+  .text-std strong, .text-body strong, p:not([class]) strong, li:not([class]) strong, body strong, .text-std b, .text-body b, p:not([class]) b, li:not([class]) b, body b {
     font-weight: 660;
   }
 }
 
-button.button, a {
-  color: var(--color-accent);
+button.button, a, .text-link {
+  color: var(--color-bitcoin-a11y-text);
   text-decoration: underline;
   text-underline-offset: 0.1em;
   text-decoration-thickness: 0.05em;
   font-style: normal;
   font-weight: 500;
 }
-button.button:hover, a:hover {
+button.button:hover, a:hover, .text-link:hover {
   text-decoration: none;
 }
-body.light-mode button.button, body.light-mode a {
+body.light-mode button.button, body.light-mode a, body.light-mode .text-link {
   text-underline-offset: 0.15em;
   text-decoration-thickness: 0.08em;
 }
 @media print {
-  button.button, a {
+  button.button, a, .text-link {
     text-underline-offset: 0.15em;
     text-decoration-thickness: 0.08em;
+  }
+}
+
+.text-link {
+  font-family: "Inter", sans-serif;
+}
+
+.text-heading, h1:not([class]), h2:not([class]), h3:not([class]), h4:not([class]), h5:not([class]), h6:not([class]) {
+  color: var(--color-accent-a11y);
+  font-family: "Inter", sans-serif;
+  line-height: 1.2;
+}
+
+.text-heading, h1:not([class]), h2:not([class]), h3:not([class]), h4:not([class]), h5:not([class]), h6:not([class]) {
+  font-size: clamp(calc(2.8rem * 95 / 100), 2.8vw, 2.8rem);
+  font-variation-settings: "opsz" 20;
+  font-weight: 550;
+}
+body.light-mode .text-heading, body.light-mode h1:not([class]), body.light-mode h2:not([class]), body.light-mode h3:not([class]), body.light-mode h4:not([class]), body.light-mode h5:not([class]), body.light-mode h6:not([class]) {
+  font-weight: 600;
+}
+@media print {
+  .text-heading, h1:not([class]), h2:not([class]), h3:not([class]), h4:not([class]), h5:not([class]), h6:not([class]) {
+    font-weight: 600;
+  }
+}
+
+.text-intro {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(calc(2.6rem * 95 / 100), 2.6vw, 2.6rem);
+  line-height: 1.2;
+  font-variation-settings: "opsz" 26;
+  font-weight: 650;
+}
+body.light-mode .text-intro {
+  font-weight: 750;
+}
+@media print {
+  .text-intro {
+    font-weight: 750;
+  }
+}
+
+.text-medium {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(calc(3.2rem * 70 / 100), 3.2vw, 3.2rem);
+  font-style: normal;
+  line-height: 1.6;
+  font-variation-settings: "opsz" 32;
+  font-weight: 450;
+}
+body.light-mode .text-medium {
+  font-weight: 550;
+}
+@media print {
+  .text-medium {
+    font-weight: 550;
+  }
+}
+
+.text-blocky {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  text-transform: uppercase;
+  font-size: clamp(calc(1.6rem * 92 / 100), 1.6vw, 1.6rem);
+  letter-spacing: 0.03em;
+  font-variation-settings: "opsz" 16;
+  font-weight: 420;
+}
+body.light-mode .text-blocky {
+  font-weight: 520;
+}
+@media print {
+  .text-blocky {
+    font-weight: 520;
+  }
+}
+@media print {
+  .text-blocky {
+    font-size: 1.7rem;
+  }
+}
+
+.text-miniscule {
+  font-family: "Inter", sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: 1.4;
+  font-variation-settings: "opsz" 10;
+  font-weight: 400;
+}
+body.light-mode .text-miniscule {
+  font-weight: 500;
+}
+@media print {
+  .text-miniscule {
+    font-weight: 500;
+  }
+}
+.text-miniscule strong, .text-miniscule b {
+  font-weight: 500;
+}
+body.light-mode .text-miniscule strong, body.light-mode .text-miniscule b {
+  font-weight: 600;
+}
+@media print {
+  .text-miniscule strong, .text-miniscule b {
+    font-weight: 600;
   }
 }
 
@@ -197,7 +312,7 @@ body {
   position: relative;
   padding: 0;
   margin: 0;
-  background-color: var(--color-bg-off-solid);
+  background-color: var(--color-bg);
   color: var(--color-foreground);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -245,8 +360,83 @@ textarea {
   min-height: 24px;
 }
 
-header {
-  background-color: var(--color-bg-solid);
+p.outset-text {
+  line-height: 1.4;
+  color: var(--color-accent-alt);
+  border-left: 2px solid var(--color-accent-alt);
+  padding-left: 2rem;
+  position: relative;
+}
+
+h4:not([class]), h5:not([class]), h6:not([class]) {
+  font-size: clamp(calc(2.2rem * 95 / 100), 2.2vw, 2.2rem);
+}
+
+h1:not([class]), h2:not([class]), h3:not([class]), h4:not([class]), h5:not([class]), h6:not([class]), p:not([class]), ul:not([class]), ol:not([class]) {
+  margin-bottom: clamp(1rem, 3vw, 3rem);
+}
+h1 > *:last-child, h2 > *:last-child, h3 > *:last-child, h4 > *:last-child, h5 > *:last-child, h6 > *:last-child, p > *:last-child, ul > *:last-child, ol > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+p:not([class]), li:not([class]) {
+  max-width: 900px;
+  width: 100%;
+  max-width: 900px;
+}
+@media print {
+  p:not([class]), li:not([class]) {
+    max-width: 100rem;
+  }
+}
+
+li:not([class]) {
+  margin-bottom: 0.6rem;
+}
+li:not([class]):last-of-type {
+  margin-bottom: 0;
+}
+
+main {
+  min-height: 80vh;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: calc(1100px + 4vw + 4vw);
+  margin: 0 auto;
+  padding-left: 4vw;
+  padding-right: 4vw;
+}
+.container--vertical-fill {
+  height: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: 4vw;
+  padding-right: 4vw;
+}
+
+.header {
+  color: var(--color-foreground-inv);
+  background-color: var(--color-bg-inv);
+  padding-top: clamp(3.5rem, 6vw, 6.5rem);
+  padding-bottom: clamp(3.5rem, 6vw, 6.5rem);
+}
+.header__logo-wrapper {
+  display: inline-block;
+}
+
+.main-section {
+  padding-top: clamp(3.5rem, 6vw, 6.5rem);
+  padding-bottom: clamp(3.5rem, 6vw, 6.5rem);
 }
 
 /*# sourceMappingURL=main.css.map */
