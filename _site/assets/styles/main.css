@@ -85,7 +85,7 @@ textarea:not([rows]) {
   --color-bg-off-solid: var(--color-white-off-solid);
   --color-accent: var(--color-bitcoin);
   --color-accent-a11y: var(--color-bitcoin-a11y);
-  --color-feint-line: rgb(255, 255, 255, .1);
+  --color-feint-line: rgb(0, 0, 0, .1);
   --color-focus: var(--color-bitcoin-a11y);
 }
 
@@ -392,9 +392,25 @@ p:not([class]), li:not([class]) {
 
 li:not([class]) {
   margin-bottom: 0.6rem;
+  margin-left: 1em;
 }
 li:not([class]):last-of-type {
   margin-bottom: 0;
+}
+li::marker {
+  color: var(--color-accent-a11y);
+}
+
+code {
+  background: var(--color-bg-off-solid);
+  font-size: 80%;
+}
+
+pre code {
+  display: block;
+  text-wrap: wrap;
+  padding: 1em;
+  border: 1px solid var(--color-feint-line);
 }
 
 main {

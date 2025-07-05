@@ -69,8 +69,24 @@ p, li{
 li{
 	&:not([class]){
 		margin-bottom: .6rem;
+		margin-left: 1em;
 		&:last-of-type{
 			margin-bottom: 0;
 		}
 	}
+	&::marker{
+		color: var(--color-accent-a11y);
+	}
+}
+
+code{
+	background: var(--color-bg-off-solid);
+	font-size: 80%;
+}
+
+pre code{
+	display: block;
+	text-wrap: wrap;
+	padding: 1em;
+	border: 1px solid var(--color-feint-line);
 }
