@@ -85,6 +85,7 @@ textarea:not([rows]) {
   --color-bg-off-solid: var(--color-white-off-solid);
   --color-accent: var(--color-bitcoin);
   --color-accent-a11y: var(--color-bitcoin-a11y);
+  --color-accent-a11y-text: var(--color-bitcoin-a11y-text);
   --color-feint-line: rgb(0, 0, 0, .1);
   --color-focus: var(--color-bitcoin-a11y);
 }
@@ -331,6 +332,7 @@ hr {
   border: 0;
   background-color: black;
   height: 1px;
+  margin-top: clamp(3.5rem, 6vw, 6.5rem);
   margin-bottom: clamp(3.5rem, 6vw, 6.5rem);
 }
 
@@ -398,7 +400,7 @@ li:not([class]):last-of-type {
   margin-bottom: 0;
 }
 li::marker {
-  color: var(--color-accent-a11y);
+  color: var(--color-accent-a11y-text);
 }
 
 code {
@@ -443,11 +445,16 @@ main {
 .header {
   color: var(--color-foreground-inv);
   background-color: var(--color-bg-inv);
-  padding-top: clamp(3.5rem, 6vw, 6.5rem);
-  padding-bottom: clamp(3.5rem, 6vw, 6.5rem);
+  padding-top: clamp(2rem, 4vw, 4.5rem);
+  padding-bottom: clamp(2rem, 4vw, 4.5rem);
 }
 .header__logo-wrapper {
   display: inline-block;
+}
+.header__logo-wrapper img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
 }
 
 .main-section {
