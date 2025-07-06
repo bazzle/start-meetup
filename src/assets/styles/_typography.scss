@@ -1,33 +1,5 @@
 @use "all-vars" as vars;
 
-.text-std{
-	@extend %text-std;
-}
-.text-link{
-	@extend %text-link
-}
-.text-body{
-	@extend %text-std;
-}
-.text-intro{
-	@extend %text-intro;
-}
-.text-medium{
-	@extend %text-medium;
-}
-.text-heading{
-	@extend %text-heading;
-}
-.text-display{
-	@extend %text-display;
-}
-.text-blocky{
-	@extend %text-blocky;
-}
-.text-miniscule{
-	@extend %text-miniscule;
-}
-
 p.outset-text{
 	line-height: 1.4;
 	color: var(--color-accent-alt);
@@ -89,4 +61,4 @@ pre code{
 	text-wrap: wrap;
 	padding: 1em;
 	border: 1px solid var(--color-feint-line);
-}
+} 

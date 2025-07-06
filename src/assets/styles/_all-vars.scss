@@ -25,19 +25,6 @@ $color-white-off-solid: #fafafa;
 	}
 }
 
-/* Colours ------------------------------------------------- */
-
-
-@mixin svgColor($color: var(--color-foreground)){
-	path, clipPath, rect, circle{
-		fill: $color;
-		color: $color;
-	}
-	text{
-		color: $color;
-	}
-}
-
 /* Variables ------------------------------------------------- */
 
 $border-radius: 4px;
@@ -355,29 +342,4 @@ $font-blocky: "Inter", sans-serif;
 			font-weight: 600;
 		}
 	}
-}
-
-
-/* Misc ------------------------------------------------- */
-
-@mixin ridged-line{
-    height: 2px;
-	background-color: var(--color-ridged-line-shadow);
-    border-bottom: 1px solid var(--color-ridged-line-light);
-}
-
-%list-item{
-	max-width: $content-width;
-	margin-bottom: 0!important;
-	@extend %text-std;
-	padding-left: .5em;
-	left: .5em;
-	position: relative;
-	padding-bottom: .3em;
-	&::marker{
-		content: "◆";
-		font-size: 1em;
-		color: var(--color-accent-alt);
-		transform: translate(-1em);
-	}
-}
+} 
