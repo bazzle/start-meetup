@@ -1,15 +1,20 @@
 import { HtmlBasePlugin } from "@11ty/eleventy";
 
+const isProduction = process.env.ELEVENTY_ENV === "production";
+
 export default function(eleventyConfig) {
-	eleventyConfig.addPlugin(HtmlBasePlugin, {
-		baseHref: "https://bazzle.github.io/start-meetup/",
-		extensions: "html"
-	});
+	if(isProduction){
+		eleventyConfig.addPlugin(HtmlBasePlugin, {
+			baseHref: "https://bazzle.github.io/start-meetup/",
+			extensions: "html"
+		});
+	}
 	eleventyConfig.addPassthroughCopy({
-    	"src/assets/scripts": "assets/scripts"
-  	});
+		"src/assets/scripts": "assets/scripts"
+	});
+	const pathPrefix = isProduction ? "/start-meetup/" : "/";
 	return {
-		pathPrefix: "/start-meetup/",
+		pathPrefix: pathPrefix,
 		dir: {
 			input: "src",
 			output: "_site"
