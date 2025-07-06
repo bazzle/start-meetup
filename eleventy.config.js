@@ -1,9 +1,11 @@
 export default function(eleventyConfig) {
-
-  return {
-    dir: {
-      input: "src",       // use current directory as input
-      output: "_site"   // default output directory
-    }
-  };
+	eleventyConfig.addPassthroughCopy({
+    	"src/assets/scripts": "assets/scripts"
+  	});
+	return {
+		dir: {
+			input: "src",
+			output: "_site"
+		}
+	};
 }
