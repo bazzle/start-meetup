@@ -1,8 +1,15 @@
+import { HtmlBasePlugin } from "@11ty/eleventy";
+
 export default function(eleventyConfig) {
+	eleventyConfig.addPlugin(HtmlBasePlugin, {
+		baseHref: "https://bazzle.github.io/start-meetup/",
+		extensions: "html"
+	});
 	eleventyConfig.addPassthroughCopy({
     	"src/assets/scripts": "assets/scripts"
   	});
 	return {
+		pathPrefix: "/start-meetup/",
 		dir: {
 			input: "src",
 			output: "_site"

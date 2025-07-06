@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 title: Telegram group setup guide
-permalink: telegram-group-setup-guide.html
+permalink: telegram-group-setup-guide/
 ---
 
 # Telegram Group Setup Guide

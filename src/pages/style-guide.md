@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 title: Style guide
-permalink: style-guide.html
+permalink: style-guide/
 ---
 
 # One morning, when Gregor Samsa woke from troubled dreams.
