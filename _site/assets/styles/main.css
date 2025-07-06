@@ -276,7 +276,7 @@ p:not([class]), li:not([class]) {
 
 li:not([class]) {
   margin-bottom: 0.6rem;
-  margin-left: 1em;
+  list-style-position: inside;
 }
 li:not([class]):last-of-type {
   margin-bottom: 0;
@@ -304,10 +304,10 @@ main {
 .container {
   position: relative;
   width: 100%;
-  max-width: calc(1100px + 4vw + 4vw);
+  max-width: calc(1100px + 2em + 2em);
   margin: 0 auto;
-  padding-left: 4vw;
-  padding-right: 4vw;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 .container--vertical-fill {
   height: 100%;
@@ -320,8 +320,8 @@ main {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  padding-left: 4vw;
-  padding-right: 4vw;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
 .stroke-foreground {

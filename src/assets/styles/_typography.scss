@@ -41,7 +41,7 @@ p, li{
 li{
 	&:not([class]){
 		margin-bottom: .6rem;
-		margin-left: 1em;
+		list-style-position:inside;
 		&:last-of-type{
 			margin-bottom: 0;
 		}

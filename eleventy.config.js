@@ -5,12 +5,12 @@ const isProduction = process.env.ELEVENTY_ENV === "production";
 export default function(eleventyConfig) {
 	if(isProduction){
 		eleventyConfig.addPlugin(HtmlBasePlugin, {
-			baseHref: "https://bazzle.github.io/start-meetup/",
-			extensions: "html"
+			baseHref: "https://bazzle.github.io/start-meetup/"
 		});
 	}
 	eleventyConfig.addPassthroughCopy({
-		"src/assets/scripts": "assets/scripts"
+		"src/assets/scripts": "assets/scripts",
+		"src/assets/img": "assets/img"
 	});
 	const pathPrefix = isProduction ? "/start-meetup/" : "/";
 	return {
