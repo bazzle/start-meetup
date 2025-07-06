@@ -4,7 +4,7 @@
 	"type": "module",
 	"scripts": {
 		"build:scss": "sass src/assets/styles/main.scss _site/assets/styles/main.css",
-		"build:11ty": "eleventy",
+		"build:11ty": "eleventy --config=.eleventy.prod.js",
 		"build": "yarn build:scss && yarn build:11ty",
 		"watch:scss": "sass --watch src/assets/styles/main.scss:_site/assets/styles/main.css",
 		"start": "concurrently \"yarn watch:scss\" \"eleventy --serve\"",
